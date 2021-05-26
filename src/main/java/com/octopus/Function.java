@@ -31,7 +31,7 @@ public class Function {
      * 1. curl -d "HTTP Body" {your host}/api/HttpExample
      * 2. curl "{your host}/api/HttpExample?name=HTTP%20Query"
      */
-    @FunctionName("HttpExample")
+    @FunctionName("quote")
     public HttpResponseMessage run(
             @HttpTrigger(
                 name = "req",

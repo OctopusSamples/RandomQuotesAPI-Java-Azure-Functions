@@ -14,7 +14,7 @@
         <java.version>11</java.version>
         <azure.functions.maven.plugin.version>1.11.0</azure.functions.maven.plugin.version>
         <azure.functions.java.library.version>1.4.2</azure.functions.java.library.version>
-        <functionAppName>randomquotesapi-azure-20210526112448524</functionAppName>
+        <functionAppName>randomquotesapi-azure</functionAppName>
     </properties>
 
     <dependencies>

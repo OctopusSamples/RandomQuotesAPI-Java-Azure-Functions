@@ -25,6 +25,9 @@ jobs:
       - name: Build
         run: ./mvnw package
 
+      - name: Create function zip
+        run: cd target/azure-functions; zip -r ../../randomquotes-azure.0.1.${{ github.run_number }}.zip *
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -43,12 +46,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: target/randomquotesapi-azure-0.1.${{ github.run_number }}.jar
-          asset_name: randomquotesapi-azure.0.1.${{ github.run_number }}.jar
+          asset_path: randomquotes-azure.0.1.${{ github.run_number }}.zip
+          asset_name: randomquotes-azure.0.1.${{ github.run_number }}.zip
           asset_content_type: application/zip
-
-      - name: Publish package
-        run: mvn --batch-mode deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
